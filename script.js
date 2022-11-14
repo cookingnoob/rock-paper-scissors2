@@ -1,7 +1,14 @@
 
-
 function playerSelection (){
- 
+    let playerText = document.querySelector('#playerText')
+    let choiceBtns = document.querySelectorAll(".choiceBtn")
+    let player;
+    choiceBtns.forEach(button => button.addEventListener("click", () => {
+       player = button.textContent;
+       console.log(player)
+    
+    } ))
+    
 }
 playerSelection()
 
