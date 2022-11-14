@@ -3,6 +3,7 @@ let computerText = document.querySelector('#computerText')
 let choiceBtns = document.querySelectorAll(".choiceBtn")
 let playerScoreText = document.querySelector('#playerScore');
 let computerScoreText = document.querySelector('#computerScore');
+let winnerText = document.querySelector('.winner')
 let player;
 let computer;
 let playerScore = 0;
@@ -25,31 +26,30 @@ function getComputerChoice (){
 }
 
 
-
-
-function scoreCount (playerScore, computerScore){
-    if (playerScore > computerScore){
-        console.log(`your score ${playerScore}, computer score ${computerScore}. You won the match`) 
-    } else if (playerScore < computerScore){
-        console.log(`your score ${playerScore}, computer score ${computerScore}. You lost the match`) 
-    }
-}
-
-
-
-
 function round (player, computer){
     let roundWinnerText = document.querySelector('#roundWinnerText')
     if (player === 'Rock' && computer === 'Scissors'|| player === 'Paper' && computer === 'Rock'||player === 'Scissors' && computer === 'Paper'){
         roundWinnerText.textContent = `You win ${player} beats ${computer}`;
         playerScoreText.textContent = `Player score: ${++playerScore}`;
-    }else if (computer === 'Rock' && player === 'Scissors'||computer === 'Paper' && player === 'Rock'||computer === 'Scissors' && player === 'Paper'){
+    } else if (computer === 'Rock' && player === 'Scissors'||computer === 'Paper' && player === 'Rock'||computer === 'Scissors' && player === 'Paper'){
         roundWinnerText.textContent = `You lose ${computer} beats ${player}`;
         computerScoreText.textContent = `Computer score: ${++computerScore}`;
-    }  else if (computer === player) {
+    } else if (computer === player) {
         roundWinnerText.textContent = 'its a tie';
     } 
+    declareWinner(playerScore, computerScore);
     }
+
+
+
+function declareWinner (playerScore, computerScore){
+  if (playerScore >= 5){
+    winnerText.textContent = 'You win the match'
+  } else if (computerScore >= 5){
+    winnerText.textContent = 'You lose the match'
+  }
+}
+
     
     
 
