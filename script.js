@@ -1,9 +1,12 @@
 let playerText = document.querySelector('#playerText')
-
+let computerText = document.querySelector('#computerText')
 let choiceBtns = document.querySelectorAll(".choiceBtn")
-
+let playerScoreText = document.querySelector('#playerScore');
+let computerScoreText = document.querySelector('#computerScore');
 let player;
 let computer;
+let playerScore = 0;
+let computerScore = 0;
 
 //el jugador escoge piedra papel o tijera
 choiceBtns.forEach(button => button.addEventListener("click", () => {
@@ -21,12 +24,7 @@ function getComputerChoice (){
     round (player, computer)
 }
 
-let playerScoreText = document.querySelector('#playerScore');
-let computerScoreText = document.querySelector('#computerScore');
-let playerScore = 0;
-let computerScore = 0;
 
-playerScoreText.textContent = `${playerScore}`;
 
 
 function scoreCount (playerScore, computerScore){
@@ -40,36 +38,17 @@ function scoreCount (playerScore, computerScore){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function round (player, computer){
     let roundWinnerText = document.querySelector('#roundWinnerText')
     if (player === 'Rock' && computer === 'Scissors'|| player === 'Paper' && computer === 'Rock'||player === 'Scissors' && computer === 'Paper'){
         roundWinnerText.textContent = `You win ${player} beats ${computer}`;
-        return (++playerScore);
+        playerScoreText.textContent = `Player score: ${++playerScore}`;
     }else if (computer === 'Rock' && player === 'Scissors'||computer === 'Paper' && player === 'Rock'||computer === 'Scissors' && player === 'Paper'){
         roundWinnerText.textContent = `You lose ${computer} beats ${player}`;
-        return (++computerScore);
+        computerScoreText.textContent = `Computer score: ${++computerScore}`;
     }  else if (computer === player) {
         roundWinnerText.textContent = 'its a tie';
-    } else {
-        roundWinnerText.textContent = `wrong input`
-    }
+    } 
     }
     
     
