@@ -1,15 +1,35 @@
+
+
+function playerSelection (){
+ 
+}
+playerSelection()
+
+
+
+function getComputerChoice (){
+    let choice = ['Rock', 'Paper', 'Scissors'];
+    let randomChoice = choice[Math.floor(Math.random()*choice.length)];
+    return(randomChoice);
+}
+getComputerChoice()
+
+
+
+
+
 let playerScore = 0;
 let computerScore = 0;
 
-function game (){ 
-for (i = 0; i < 5; ++i){ 
-    let player = playerSelection()
-    let computer = getComputerChoice()  
-    round(computer, player);
-    // console.log(computer, player, playerScore, computerScore);
-}
-};
-game()
+// function game (){ 
+// for (i = 0; i < 5; ++i){ 
+//     let player = playerSelection()
+//     let computer = getComputerChoice()  
+//     round(computer, player);
+//     // console.log(computer, player, playerScore, computerScore);
+// }
+// };
+
 
 function declareWinner (playerScore, computerScore){
     if (playerScore > computerScore){
@@ -20,21 +40,19 @@ function declareWinner (playerScore, computerScore){
 }
 declareWinner(playerScore, computerScore);
 
-function playerSelection (){
-    let userChoice = prompt('Rock, Paper or Scissors');
-    let caseInsensitive = userChoice.charAt(0).toUpperCase() + userChoice.slice(1).toLowerCase();
-    return (caseInsensitive);  
-}
 
 
 
-function getComputerChoice (){
-    let choice = ['Rock', 'Paper', 'Scissors'];
-    let randomChoice = choice[Math.floor(Math.random()*choice.length)];
-    return(randomChoice);
-}
 
-function round (computer, player){
+
+
+
+
+
+
+
+
+function round (){
     if (player === 'Rock' && computer === 'Scissors'){
         console.log(`You win ${player} beats ${computer}, player score `);
         return (++playerScore);
@@ -59,3 +77,5 @@ function round (computer, player){
         console.log('wrong input')
     }
     }
+
+round()
